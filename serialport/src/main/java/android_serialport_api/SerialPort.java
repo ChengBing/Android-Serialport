@@ -207,7 +207,7 @@ public class SerialPort {
                 /* Missing read/write permission, trying to chmod the file */
                 // 如果没有获取指定串口的读写权限，则通过挂在到linux的方式修改串口的权限为可读写
                 Process su;
-                su = Runtime.getRuntime().exec("/system/bin/su");
+                su = Runtime.getRuntime().exec("/system/xbin/su");
                 String cmd = "chmod 666 " + device.getAbsolutePath() + "\n"
                         + "exit\n";
                 su.getOutputStream().write(cmd.getBytes());
